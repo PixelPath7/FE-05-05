@@ -13,7 +13,7 @@ document.getElementById("studentForm").addEventListener("submit", function(e){
         return
     }
 
-    const student = [name, lastName, grade];
+    const student = {name, lastName, grade, fecha}
 
     students.push(student);
     //console.log(students)
