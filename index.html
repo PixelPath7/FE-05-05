@@ -10,29 +10,29 @@
     </head>
     
     <body>
-        <center>
-        <h2>Notas Front-End</h2>
+        <div id="container">
+        <h2 id="mainTitle">Notas Front-End</h2>
         <div id="average">Promedio General del Curso: N/A</div>
         <form id="studentForm">
             <div>
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" required placeholder="Escribe un Nombre" title="Por favor, ingresa un Nombre">
             </div>
             <div>
                 <label for="lastName">Apellido: </label>
-                <input type="text" id="lastName" required>
+                <input type="text" id="lastName" required placeholder="Escribe un Apellido" title="Por favor, ingresa un Apellido">
             </div>
             <div>
                 <label for="grade">Nota: </label>
-                <input type="number" id="grade" step="0.1" min="1" max="7" required>
+                <input type="number" id="grade" step="0.1" min="1" max="7" required placeholder="Ingresa una Nota" title="Ingresa una nota entre 1 y 7">
             </div>
             <div>
                 <label for="date">Fecha: </label>
-                <input type="date" id="date" required>
+                <input type="date" id="date" required title="Selecciona una Fecha válida">
             </div>
             <button type="submit">Guardar Alumno</button>
         </form>
-        <table id="studentsTable" border="2" callpadding="8" cellspacing="0">
+        <table id="studentsTable" border="2">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -46,6 +46,6 @@
             </tbody>
         </table>
         <script src="script.js"></script>
-        </center>
+        </div>
     </body>
 </html>

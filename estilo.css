@@ -1,9 +1,29 @@
-#h2 {
-    font-size: 10px;
+#mainTitle {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 35;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(./Imagenes/tumblr_0e0ca0386f73c41604556382f5519d33_0a87761d_500.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgb(136, 210, 219);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 #average{
-    margin: 16px 0;
+    margin: auto;
     padding: 10px;
     background-color:  rgb(34, 31, 31);
     border: 1px solid  rgb(43, 132, 216);
@@ -15,7 +35,7 @@
 }
 
 #studentForm{
-    margin: 16px 0;
+    margin: auto;
     padding: 10px;
     background-color: rgb(201, 201, 201);
     border: 1px solid rgb(43, 132, 216);
@@ -23,26 +43,58 @@
     font-weight: bold;
     max-width: 300px;
     margin-bottom: 20px;
-    color: rgb(0, 0, 0)
+    color: rgb(0, 0, 0);
+    flex-direction: column;
+    gap: 12px;
 }
 
-#studentsTable{
-    margin: 50px auto;
+#studentForm div{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+#studentForm label{
+    text-align: left;
+    width: 100px;
+    margin-right: 10px;
+}
+
+#studentForm input{
+    flex: 1;
+    padding: 3px;
+}
+
+#studentForm button{
+    align-self: flex-end;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#studentsTable {
+    margin: auto;
     border-collapse: collapse;
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 900px;
     font-family: Arial, sans-serif;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#studentsTable th,
-#studentsTable td {
-  padding: 12px 16px;
-  text-align: center;
-  border: 1px solid #ccc;
-}
+    table-layout: fixed;
+  }
+  
+  #studentsTable th,
+  #studentsTable td {
+    padding: 12px 8px;
+    font-size: clamp(14px, 2.5vw, 18px);
+    text-align: center;
+    border: 1px solid #ccc;
+    white-space: normal;
+    overflow: break-word;
+  }
 
 #studentsTable thead {
   background-color: #67a4d6;
-  color: white;
+  color: rgb(255, 255, 255);
+}
+
+#studentsTable tbody tr{
+    background-color: white;
 }
