@@ -3,13 +3,22 @@
     font-size: 35;
 }
 
-body {
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     font-family: Arial, sans-serif;
+  }
+
+body {
     background-image: url(./Imagenes/tumblr_0e0ca0386f73c41604556382f5519d33_0a87761d_500.gif);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #container {
@@ -20,6 +29,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-sizing: border-box;
 }
 
 #average{
