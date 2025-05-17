@@ -83,11 +83,12 @@ body {
   #studentsTable th,
   #studentsTable td {
     padding: 12px 8px;
-    font-size: clamp(14px, 2.5vw, 18px);
+    font-size: clamp(10px, 2.5vw, 16px);
     text-align: center;
     border: 1px solid #ccc;
     white-space: normal;
-    overflow: break-word;
+    word-break: break-word;
+    line-height: 1.2;
   }
 
 #studentsTable thead {
@@ -97,4 +98,5 @@ body {
 
 #studentsTable tbody tr{
     background-color: white;
+    font-size: 12px;
 }
