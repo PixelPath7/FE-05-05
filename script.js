@@ -37,6 +37,26 @@ function calculateAverage(){
     averageDiv.innerHTML = `Promedio General del Curso: ${total_notas/total_estudiantes}`
 }
 
+function deleteEstudiante(student, row){
+    const index=students.indexOf(student);
+    if(index > -1){
+        students.splice(index, 1);
+        calculateAverage();
+        row.remove();
+    }
+}
+
+function editEstudiante(student, row){
+    const index=students.indexOf(student);
+    if(index > -1){
+        const newName = student.name;
+        const newLastName = student.lastName;
+        const newGrade = student.grade;
+        const newDate = student.date;
+        
+    }
+}
+
 //function calcularPromedio(){
 //    if(students.length===0){
 //        averageDiv.textContent = "Promedio General del Curso: N/A"
@@ -53,6 +73,14 @@ function addStudentToTable(student){
         <td> ${student.name}</td>
         <td> ${student.lastName}</td>
         <td> ${student.grade}</td>
-        <td> ${student.date}</td>`;
+        <td> ${student.date}</td>
+        <td> <button class="delete-btn ${student.actions}">Eliminar</button></td>
+        <td> <button class="edit-btn ${student.actions}">Editar</button></td>`;
+        row.querySelector(".delete-btn").addEventListener("click", function(){
+            deleteEstudiante(student, row);
+        })
+        row.querySelector(".edit-btn").addEventListener("click", function(){
+            editEstudiante(student, row);
+        })
     tableBody.appendChild(row);
 }
