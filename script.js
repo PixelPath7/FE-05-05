@@ -8,7 +8,9 @@ document.getElementById("studentForm").addEventListener("submit", function(e){
     const name = document.getElementById("name").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
     const grade = parseFloat(document.getElementById("grade").value);
-    const date = document.getElementById("date").value.trim();
+    
+    const rawDate = document.getElementById("date").value.trim();
+    const date = new Date(rawDate).toLocaleDateString("es-CL");
 
     if(!name || !lastName || isNaN(grade) || grade < 1 || grade > 7 || !date){
         alert("Error al ingresar Datos")
@@ -47,15 +49,51 @@ function deleteEstudiante(student, row){
 }
 
 function editEstudiante(student, row){
-    const index=students.indexOf(student);
-    if(index > -1){
-        const newName = student.name;
-        const newLastName = student.lastName;
-        const newGrade = student.grade;
-        const newDate = student.date;
-        
+    const index = students.indexOf(student);
+    if (index === -1) return;
+
+    while (true) {
+
+        const newName = prompt("Editar nombre:", student.name)?.trim();
+        if (newName === null) return;
+
+        const newLastName = prompt("Editar apellido:", student.lastName)?.trim();
+        if (newLastName === null) return;
+
+        const newGradeInput = prompt("Editar nota (1 a 7):", student.grade);
+        if (newGradeInput === null) return;
+
+        const newDate = prompt("Editar fecha:", student.date)?.trim();
+        if (newDate === null) return;
+
+        const newGrade = parseFloat(newGradeInput);
+        const errors = [];
+
+        if (!newName) errors.push("El nombre no puede estar vacío.");
+        if (!newLastName) errors.push("El apellido no puede estar vacío.");
+        if (isNaN(newGrade) || newGrade < 1 || newGrade > 7) errors.push("La nota debe ser un número entre 1 y 7.");
+        if (!newDate) errors.push("La fecha no puede estar vacía.");
+
+        if (errors.length === 0) {
+
+            student.name = newName;
+            student.lastName = newLastName;
+            student.grade = newGrade;
+            student.date = newDate;
+
+            row.cells[0].textContent = newName;
+            row.cells[1].textContent = newLastName;
+            row.cells[2].textContent = newGrade;
+            row.cells[3].textContent = newDate;
+
+            calculateAverage();
+            break;
+
+        } else {
+            alert("Errores:\n" + errors.join("\n"));
+        }
     }
-}
+}    
 
 //function calcularPromedio(){
 //    if(students.length===0){
@@ -74,8 +112,10 @@ function addStudentToTable(student){
         <td> ${student.lastName}</td>
         <td> ${student.grade}</td>
         <td> ${student.date}</td>
-        <td> <button class="delete-btn ${student.actions}">Eliminar</button></td>
-        <td> <button class="edit-btn ${student.actions}">Editar</button></td>`;
+        <td> 
+            <button class="delete-btn ${student.actions}">Eliminar</button>
+            <button class="edit-btn ${student.actions}">Editar</button>
+        </td>`;
         row.querySelector(".delete-btn").addEventListener("click", function(){
             deleteEstudiante(student, row);
         })

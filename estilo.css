@@ -110,3 +110,7 @@ body {
     background-color: white;
     font-size: 12px;
 }
+
+.edit-btn {
+  margin-top: 5px;
+}
