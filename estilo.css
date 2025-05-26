@@ -44,6 +44,27 @@ body {
     color: rgb(255, 255, 255)
 }
 
+#total_students, 
+#total_aprobados, 
+#total_desaprobados {
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(34, 31, 31);
+    border: 1px solid rgb(43, 132, 216);
+    font-size: 10px;
+    font-weight: bold;
+    max-width: 300px;
+    color: rgb(255, 255, 255);
+}
+
+#totalContainer {
+    display: flex;
+    flex-direction: column; /* Apilamos los elementos en columna */
+    align-items: center; /* Centramos los divs horizontalmente */
+    gap: 1px; /* Separación de 1px entre los divs */
+    margin-bottom: 20px; /* Espacio después del contenedor */
+}
+
 #studentForm{
     margin: auto;
     padding: 10px;

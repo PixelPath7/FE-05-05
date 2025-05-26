@@ -1,6 +1,9 @@
 const students = []
 const tableBody = document.querySelector("#studentsTable tbody");
 const averageDiv=document.getElementById("average");
+const tStudents=document.getElementById("total_students");
+const tAprobados=document.getElementById("total_aprobados");
+const tDesaprobados=document.getElementById("total_desaprobados");
 
 document.getElementById("studentForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -23,6 +26,7 @@ document.getElementById("studentForm").addEventListener("submit", function(e){
     //console.log(students)
     addStudentToTable(student)
     calculateAverage()
+    aprobados_desaprobados()
 
     this.reset()
 
@@ -45,6 +49,7 @@ function deleteEstudiante(student, row){
         students.splice(index, 1);
         calculateAverage();
         row.remove();
+        aprobados_desaprobados();
     }
 }
 
@@ -93,7 +98,27 @@ function editEstudiante(student, row){
             alert("Errores:\n" + errors.join("\n"));
         }
     }
-}    
+}
+
+function aprobados_desaprobados() {
+    let total_students = 0;
+    let total_aprobados = 0;
+    let total_desaprobados = 0;
+
+    for (let elem of students) {
+        total_students++;
+
+        if (elem.grade >= 4) {
+            total_aprobados++;
+        } else {
+            total_desaprobados++;
+        }
+    }
+
+    document.getElementById("total_students").innerHTML = `Total Estudiantes: ${total_students}`;
+    document.getElementById("total_aprobados").innerHTML = `Total Estudiantes Aprobados: ${total_aprobados}`;
+    document.getElementById("total_desaprobados").innerHTML = `Total Estudiantes Desaprobados: ${total_desaprobados}`;
+}
 
 //function calcularPromedio(){
 //    if(students.length===0){
