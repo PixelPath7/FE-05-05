@@ -92,6 +92,7 @@ function editEstudiante(student, row){
             row.cells[3].textContent = newDate;
 
             calculateAverage();
+            aprobados_desaprobados();
             break;
 
         } else {
