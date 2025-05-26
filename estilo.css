@@ -59,10 +59,10 @@ body {
 
 #totalContainer {
     display: flex;
-    flex-direction: column; /* Apilamos los elementos en columna */
-    align-items: center; /* Centramos los divs horizontalmente */
-    gap: 1px; /* Separación de 1px entre los divs */
-    margin-bottom: 20px; /* Espacio después del contenedor */
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    margin-bottom: 20px;
 }
 
 #studentForm{
